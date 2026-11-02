@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DS.LAB · 数据结构交互学习站</title><link rel="stylesheet" href="./style.css"></head>
+<body><div class="layout"><aside class="sidebar"><div class="logo">DS<span>.</span>LAB</div><p class="subtitle">数据结构 · 交互式学习</p>
+<nav><button class="nav active" data-page="home">⌂ &nbsp;课程首页</button><button class="nav" data-page="lesson">▤ &nbsp;栈与表达式</button>
+<div class="nav-heading">下一阶段</div><div class="locked">◇ &nbsp;表达式树 · 即将推出</div><div class="locked">≋ &nbsp;链表 · 即将推出</div><div class="locked">▥ &nbsp;二叉树 · 即将推出</div></nav><div class="sidebar-foot">观察 → 单步执行 → 修改输入 → 理解算法</div></aside>
+<main><header><span>Data Structures / <strong id="breadcrumb">课程首页</strong></span><span class="pill">Interactive Course</span></header><div class="content">
+<section id="home"><div class="eyebrow">WELCOME TO DATA STRUCTURES LAB</div><h1>把抽象的数据结构，变成看得见的过程。</h1><p class="lead">通过逐步可视化理解栈的使用方式、表达式转换和求值。所有运算直接在浏览器完成。</p><div class="tiles"><button class="tile" data-go="convert"><small>MODULE 01</small><h2>Infix → Postfix</h2><p>运算符的优先级、结合性和括号如何决定出栈顺序？</p></button><button class="tile" data-go="evaluate"><small>MODULE 02</small><h2>Postfix Evaluation</h2><p>如何让数字入栈，再逐步合并中间结果？</p></button></div>
+<div class="card info"><h2>持续更新的学习路线</h2><p>Stack → Expression Tree → Tree Traversal → Linked List → Heap → Graph → Segment Tree</p></div></section>
+<section id="lesson" hidden><div class="eyebrow">MODULE 01 · STACK & EXPRESSION</div><h1>表达式与栈</h1><p class="lead">转换时使用运算符栈；求值时使用数值栈。两种算法共享 LIFO 思想，但栈内保存的信息不同。</p>
+<div class="tabs"><button class="tab active" data-mode="convert">01　Infix → Postfix</button><button class="tab" data-mode="evaluate">02　Postfix 求值</button></div>
+<div class="card"><div class="input-row"><label><span id="input-label">输入中缀表达式</span><input id="expression" value="9+3*7+(4*5+6)*2" spellcheck="false"></label><button id="generate" class="primary">生成步骤</button><button id="sample">恢复示例</button></div>
+<div id="error" role="alert"></div><p id="rules" class="rules">操作数直接输出；运算符按优先级和结合性入栈或出栈；括号限定作用域。</p>
+<div class="visual"><div class="headline"><h2 id="visual-title">逐步转换</h2><strong id="count">步骤 0 / 0</strong></div><div class="tokens" id="tokens"></div>
+<div class="panels"><div class="panel"><h3 id="stack-title">运算符栈（栈顶在上）</h3><div id="stack" class="stack"></div></div><div class="panel"><h3 id="result-title">Postfix 输出</h3><div id="result" class="output"></div></div></div><div id="message" class="message">初始化</div></div>
+<div class="controls"><button id="prev">← 上一步</button><button id="next" class="primary">下一步 →</button><button id="play">▶ 自动播放</button><button id="reset">重置</button><input id="seek" type="range" min="0" max="0" value="0" aria-label="步骤进度"></div></div>
+<div class="notes"><article class="card"><h3>为何使用栈？</h3><p>遇到暂时不能输出的运算符就保存，等到优先级或括号要求它完成时再弹出。后进先出与嵌套子表达式的处理顺序一致。</p></article><article class="card"><h3>复杂度</h3><p>每个 token 至多进行常数次入栈、出栈操作：时间 O(n)，最坏辅助空间 O(n)。</p></article></div>
+<p class="footnote">支持非负整数、小数、括号及二元 + - * / ^；^ 为右结合。不支持一元负号、隐式乘法和科学计数法。后缀 token 用空格分隔。</p></section>
+<footer>DS.LAB · Open source · GitHub Pages</footer></div></main></div><script src="./app.js"></script></body></html>
